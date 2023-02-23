@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+// import {  useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import '../index.css';
 
@@ -7,7 +7,8 @@ import Form from './phoneBook/Form';
 import PhoneBookList from './phoneBook/PhoneBookList';
 import Filter from './phoneBook/Filter';
 
-import { addContact, deleteContact } from 'redux/actions';
+import { addContact, deleteContact, setFilter } from 'redux/actions';
+import { getFilter, getFilterContacts } from 'redux/selectors';
 
 import Notiflix from 'notiflix';
 
@@ -35,10 +36,10 @@ Notiflix.Notify.init({
 });
 
 export default function PhoneBook() {
-  const contacts = useSelector(store => store.contacts);
-  const [filter, setFilter] = useState('');
-
+  const contacts = useSelector(getFilterContacts);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
+console.log(contacts)
 
   const onAddContact = ({name, number}) => {
         for (let i = 0; i < contacts.length; i++) {
@@ -57,24 +58,9 @@ export default function PhoneBook() {
   }
 
 
-  useEffect(() => {
-    localStorage.setItem('phoneBook', JSON.stringify(contacts));
-  }, [contacts]);
-
-  const getFilterContacts = useMemo(() => {
-    if (!filter) {
-      return contacts;
-    }
-
-    const normalizedFilter = filter.toLowerCase();
-    const visiblePhoneList = contacts.filter(({ name, number }) => {
-      return (
-        name.toLowerCase().includes(normalizedFilter) ||
-        number.includes(normalizedFilter)
-      );
-    });
-    return visiblePhoneList;
-  }, [filter, contacts]);
+  // useEffect(() => {
+  //   localStorage.setItem('phoneBook', JSON.stringify(contacts));
+  // }, [contacts]);
 
   return (
       <Conteiner title="Phonebook">
@@ -83,10 +69,10 @@ export default function PhoneBook() {
           <>
             <Filter
               value={filter}
-              onChange={({ target }) => setFilter(target.value)}
+              onChange={({ target }) => dispatch(setFilter(target.value))}
             />
             <PhoneBookList
-              contacts={getFilterContacts}
+              contacts={contacts}
               type="button"
               text="delete"
               onClick={onDeleteContact}
