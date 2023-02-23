@@ -60,22 +60,3 @@ function Form({onSubmit}) {
 }
 
 export default Form;
-
-// -----------інший варіант------------
-  // const [name, setName] = useState('');
-  // const [number, setNumber] = useState('');
-
-  // const hendleChange = e => {
-  //   const { value, name } = e.currentTarget;
-
-  //   switch (name) {
-  //     case 'name':
-  //       setName(value);
-  //       break;
-  //     case 'number':
-  //       setNumber(value);
-  //       break;
-  //     default:
-  //       return;
-  //   }
-  // };
