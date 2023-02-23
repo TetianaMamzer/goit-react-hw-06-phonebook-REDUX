@@ -1,0 +1,85 @@
+.conteiner {
+  padding: 40px;
+  width: 720px;
+margin-right: auto;
+margin-left: auto;
+
+background-color: #000;
+}
+
+.title {
+  display: flex;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  color: red;
+  justify-content: center;
+
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.label {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  color: red;
+
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid red;
+  padding: 5px;
+  margin-left: 20px;
+
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  color: #fff;
+}
+
+.label:hover,
+.label:focus {
+  color: #fff;
+
+}
+.button {
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid red;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  color: red;
+
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.labelFilter {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  margin-top: 40px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  color: #fff;
+
+  border: 1px solid #fff;
+
+}
+
+.list{
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  color: #fff;
+  margin-bottom: 10px;
+}
